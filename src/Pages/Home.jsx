@@ -17,10 +17,10 @@ export default function Home() {
   }, []);
 
   return (
-    <>
+    <StyledHome>
       <PageTitle title="Selecione o filme" />
       <Movies movies={movies} />
-    </>
+    </StyledHome>
   );
 }
 

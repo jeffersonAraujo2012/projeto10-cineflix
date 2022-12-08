@@ -8,7 +8,7 @@ export default function Movies({ movies }) {
     <StyledMovies>
       {movies.map((movie, index) => {
         return (
-          <Link to="/sessoes/:idFilme" key={index}>
+          <Link to={`/sessoes/${movie.id}`} key={index}>
             <CardMovie posterUrl={movie.posterURL} alt={movie.title} />
           </Link>
         );
