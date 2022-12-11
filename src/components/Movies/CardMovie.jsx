@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function CardMovie({ posterUrl, alt, min }) {
+export default function CardMovie({ posterUrl, alt, min = false }) {
   return (
     <StyledCardMovie min={+min}>
       <img src={posterUrl} alt={alt} />

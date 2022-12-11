@@ -6,7 +6,7 @@ import FooterSession from "../components/FooterSession";
 import PageTitle from "../components/PageTitle";
 import Seats from "../components/Seats";
 
-export default function ChoiceSeat() {
+export default function ChoiceSeat({setReservation}) {
   const { idSessao } = useParams();
   const [selectedsSeats, setSelectedsSeats] = useState([]);
   const [session, setSession] = useState(undefined);
@@ -29,6 +29,8 @@ export default function ChoiceSeat() {
       name: name,
       cpf: cpf,
     };
+
+    setReservation({...reservation, session: session});
 
     axios
       .post(

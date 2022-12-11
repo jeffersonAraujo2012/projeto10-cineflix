@@ -32,6 +32,7 @@ export default function Sessions() {
           <Session
             date={session.weekday + " - " + session.date}
             schedule={session.showtimes}
+            key={session.id}
           />
         );
       })}

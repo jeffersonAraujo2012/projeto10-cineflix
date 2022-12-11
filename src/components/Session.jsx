@@ -1,13 +1,17 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-export default function Session({date, schedule}) {
+export default function Session({ date, schedule }) {
   return (
     <StyledSession>
       <p>{date}</p>
       <div>
-        {schedule.map(time => {
-          return <Link to={`/assentos/${time.id}`}>{time.name}</Link>
+        {schedule.map((time) => {
+          return (
+            <Link to={`/assentos/${time.id}`} key={time.id}>
+              {time.name}
+            </Link>
+          );
         })}
       </div>
     </StyledSession>
@@ -45,7 +49,7 @@ const StyledSession = styled.div`
 
     width: 83px;
     height: 43px;
-    margin-right: 8px; 
+    margin-right: 8px;
 
     background: #e8833a;
     border: none;
