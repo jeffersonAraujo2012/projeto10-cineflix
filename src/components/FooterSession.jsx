@@ -5,7 +5,11 @@ export default function FooterSession({ posterUrl, title, date = "" }) {
   return (
     <StyledFooterSession>
       <CardMovie posterUrl={posterUrl} alt={title} min />
-      <p>{title}</p>
+      <div>
+        <p>{title}</p>
+        <p>{date}</p>
+      </div>
+      
     </StyledFooterSession>
   );
 }
