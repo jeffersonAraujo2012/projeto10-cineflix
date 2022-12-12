@@ -3,10 +3,11 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import FooterSession from "../components/FooterSession";
+import Loading from "../components/Loading";
 import PageTitle from "../components/PageTitle";
 import Seats from "../components/Seats";
 
-export default function ChoiceSeat({setReservation}) {
+export default function ChoiceSeat({ setReservation }) {
   const { idSessao } = useParams();
   const [selectedsSeats, setSelectedsSeats] = useState([]);
   const [session, setSession] = useState(undefined);
@@ -30,7 +31,7 @@ export default function ChoiceSeat({setReservation}) {
       cpf: cpf,
     };
 
-    setReservation({...reservation, session: session});
+    setReservation({ ...reservation, session: session });
 
     axios
       .post(
@@ -40,7 +41,7 @@ export default function ChoiceSeat({setReservation}) {
       .then((res) => navigate("/sucesso"));
   }
 
-  if (!session) return "Loading...";
+  if (!session) return <Loading />;
 
   return (
     <StyledChoiceSeat>
@@ -59,6 +60,7 @@ export default function ChoiceSeat({setReservation}) {
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
+          data-test="client-name"
         />
 
         <p>CPF do comprador:</p>
@@ -68,9 +70,10 @@ export default function ChoiceSeat({setReservation}) {
           value={cpf}
           onChange={(e) => setCpf(e.target.value)}
           required
+          data-test="client-cpf"
         />
 
-        <button>Reservar assento(s)</button>
+        <button data-test="book-seat-btn">Reservar assento(s)</button>
       </Dados>
 
       <FooterSession
@@ -87,7 +90,8 @@ const StyledChoiceSeat = styled.div`
   flex-direction: column;
 
   width: 100%;
-  min-height: calc(100vh - 70px); //Estou tirando o tamanho do header
+  min-height: calc(100vh - 70px); //70px is the hight of the header
+  margin-bottom: 117px;
 `;
 
 const Dados = styled.form`

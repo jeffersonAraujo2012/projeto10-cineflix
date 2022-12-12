@@ -12,7 +12,7 @@ export default function Success({ reservation }) {
   return (
     <StyledSuccess>
       <PageTitle success title="Pedido feito com sucesso!" />
-      <div>
+      <div data-test="movie-info">
         <h2>Filme e sessão</h2>
         <p>{reservation.session.movie.title}</p>
         <p>
@@ -20,7 +20,7 @@ export default function Success({ reservation }) {
         </p>
       </div>
 
-      <div>
+      <div data-test="seats-info">
         <h2>Ingressos</h2>
         {reservation.ids.map((seatId) => {
           const [seat] = reservation.session.seats.filter(
@@ -31,13 +31,15 @@ export default function Success({ reservation }) {
         })}
       </div>
 
-      <div>
+      <div data-test="client-info">
         <h2>Comprador</h2>
         <p>Nome: {reservation.name}</p>
         <p>CPF: {reservation.cpf}</p>
       </div>
 
-      <button onClick={goToHome}>Voltar pra Home</button>
+      <button onClick={goToHome} data-test="go-home-btn">
+        Voltar pra Home
+      </button>
     </StyledSuccess>
   );
 }

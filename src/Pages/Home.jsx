@@ -4,9 +4,10 @@ import axios from "axios";
 
 import PageTitle from "../components/PageTitle";
 import Movies from "../components/Movies";
+import Loading from "../components/Loading";
 
 export default function Home() {
-  const [movies, setMovies] = useState([]);
+  const [movies, setMovies] = useState(undefined);
 
   useEffect(() => {
     const promiseMovies = axios.get(
@@ -15,6 +16,8 @@ export default function Home() {
     promiseMovies.then((res) => setMovies(res.data));
     promiseMovies.catch((e) => console.log(e));
   }, []);
+
+  if (!movies) return <Loading />;
 
   return (
     <StyledHome>

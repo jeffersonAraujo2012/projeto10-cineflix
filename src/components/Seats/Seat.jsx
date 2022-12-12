@@ -2,7 +2,12 @@ import styled from "styled-components";
 
 export default function Seat({ num, selected, isAvailable, onClick }) {
   return (
-    <StyledSeat selected={selected} isAvailable={isAvailable} onClick={onClick}>
+    <StyledSeat
+      selected={selected}
+      isAvailable={isAvailable}
+      onClick={onClick}
+      data-test="seat"
+    >
       {num}
     </StyledSeat>
   );

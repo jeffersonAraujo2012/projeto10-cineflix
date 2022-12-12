@@ -3,12 +3,12 @@ import styled from "styled-components";
 
 export default function Session({ date, schedule }) {
   return (
-    <StyledSession>
+    <StyledSession data-test="movie-day">
       <p>{date}</p>
       <div>
         {schedule.map((time) => {
           return (
-            <Link to={`/assentos/${time.id}`} key={time.id}>
+            <Link to={`/assentos/${time.id}`} key={time.id} data-test="showtime">
               {time.name}
             </Link>
           );

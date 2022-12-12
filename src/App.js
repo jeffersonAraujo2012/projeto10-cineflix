@@ -13,8 +13,8 @@ function App() {
 
   return (
     <>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/sessoes/:idFilme" element={<Sessions />} />

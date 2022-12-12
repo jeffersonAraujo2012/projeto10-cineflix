@@ -3,7 +3,7 @@ import CardMovie from "./Movies/CardMovie";
 
 export default function FooterSession({ posterUrl, title, date = "" }) {
   return (
-    <StyledFooterSession>
+    <StyledFooterSession data-test="footer">
       <CardMovie posterUrl={posterUrl} alt={title} min />
       <div>
         <p>{title}</p>

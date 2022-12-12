@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
 import FooterSession from "../components/FooterSession";
+import Loading from "../components/Loading";
 
 import PageTitle from "../components/PageTitle";
 import Session from "../components/Session";
@@ -20,7 +21,7 @@ export default function Sessions() {
   }, []);
 
   if (!sessions) {
-    return "Loading...";
+    return <Loading />;
   }
 
   return (

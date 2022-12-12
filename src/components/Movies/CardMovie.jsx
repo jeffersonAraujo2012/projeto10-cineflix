@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export default function CardMovie({ posterUrl, alt, min = false }) {
   return (
-    <StyledCardMovie min={+min}>
+    <StyledCardMovie min={+min} data-test="movie">
       <img src={posterUrl} alt={alt} />
     </StyledCardMovie>
   );
