@@ -91,7 +91,7 @@ const StyledChoiceSeat = styled.div`
 
   width: 100%;
   min-height: calc(100vh - 70px); //70px is the hight of the header
-  margin-bottom: 117px;
+  margin-bottom: 137px;
 `;
 
 const Dados = styled.form`
