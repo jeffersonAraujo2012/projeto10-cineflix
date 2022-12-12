@@ -27,7 +27,7 @@ export default function Success({ reservation }) {
             (s) => s.id === seatId
           );
           console.log(seat);
-          return <p key={seat}>assento {seat.name}</p>;
+          return <p key={seatId}>assento {seat.name}</p>;
         })}
       </div>
 
