@@ -9,11 +9,16 @@ export default function Seats({ seats, selectedsSeats, setSelectedsSeats }) {
 
     if (seat.isAvailable === true && !isSelected) {
       setSelectedsSeats([...selectedsSeats, seat.id]);
+      return
     }
     if (isSelected) {
       let novoSelectedsSeats = [...selectedsSeats];
       novoSelectedsSeats.splice(index, 1);
       setSelectedsSeats(novoSelectedsSeats);
+      return
+    }
+    if (seat.isAvailable === false) {
+      alert("Esse assento não está disponível");
     }
   }
   return (
