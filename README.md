@@ -33,4 +33,4 @@ npm start
 
 The website is also acessable through the vercel deploy, click the following link to see it: 
 
-- [CineFLex](https://projeto10-cineflix-peach.vercel.ap
+- [CineFLex](https://projeto10-cineflix-peach.vercel.app
