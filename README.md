@@ -16,7 +16,7 @@ Cineflex is a mobile app created at 4th week of React of Bootcamp Driven Educati
 This project was bootstrapped with Create React App, so you need to install Node.js and npm first, in order to test the project. First clone this github repository into your computer, then open the folder cloned:
 
 ```bash
-git clone https://github.com/ecocaval/Cineflex_ReactJS.git && cd Cineflex_ReactJS
+git clone https://github.com/jeffersonAraujo2012/projeto10-cineflix && cd projeto10-cineflix
 ```
 
 Then you must install all the dependencies running:
