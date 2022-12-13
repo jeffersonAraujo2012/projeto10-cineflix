@@ -11,8 +11,8 @@ export default function ChoiceSeat({ setReservation }) {
   const { idSessao } = useParams();
   const [selectedsSeats, setSelectedsSeats] = useState([]);
   const [session, setSession] = useState(undefined);
-  const [name, setName] = useState("");
-  const [cpf, setCpf] = useState("");
+  const [names, setNames] = useState({});
+  const [cpfs, setCpfs] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -25,10 +25,21 @@ export default function ChoiceSeat({ setReservation }) {
 
   function confirmReservation(e) {
     e.preventDefault();
+
+    const buyers = [];
+
+    selectedsSeats.forEach(seatId =>  {
+      const buyer = {
+        idAssento: seatId,
+        nome: names[seatId],
+        cpf: cpfs[seatId],
+      };
+      buyers.push(buyer);
+    });
+
     const reservation = {
       ids: selectedsSeats,
-      name: name,
-      cpf: cpf,
+      compradores: buyers,
     };
 
     setReservation({ ...reservation, session: session });
@@ -51,27 +62,46 @@ export default function ChoiceSeat({ setReservation }) {
         seats={session.seats}
         selectedsSeats={selectedsSeats}
         setSelectedsSeats={setSelectedsSeats}
+        names={names}
+        cpfs={cpfs}
+        setNames={setNames}
+        setCpfs={setCpfs}
       />
       <Dados onSubmit={confirmReservation}>
-        <p>Nome do comprador:</p>
-        <input
-          type="text"
-          placeholder="Digite seu nome..."
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-          data-test="client-name"
-        />
+        {selectedsSeats.map((seatId) => {
+          const [seat] = session.seats.filter(s => s.id === seatId);
+          return (
+            <div key={seatId}>
+              <p>Nome do comprador (assento {seat.name}):</p>
+              <input
+                type="text"
+                placeholder="Digite seu nome..."
+                value={names[seatId] || ""}
+                onChange={(e) => {
+                  const newNames = { ...names };
+                  newNames[seatId] = e.target.value;
+                  setNames(newNames);
+                }}
+                required
+                data-test="client-name"
+              />
 
-        <p>CPF do comprador:</p>
-        <input
-          type="number"
-          placeholder="Digite seu CPF..."
-          value={cpf}
-          onChange={(e) => setCpf(e.target.value)}
-          required
-          data-test="client-cpf"
-        />
+              <p>CPF do comprador (assento {seat.name}):</p>
+              <input
+                type="number"
+                placeholder="Digite seu CPF..."
+                value={cpfs[seatId] || ""}
+                onChange={(e) => {
+                  const newCpfs = { ...cpfs };
+                  newCpfs[seatId] = e.target.value;
+                  setCpfs(newCpfs);
+                }}
+                required
+                data-test="client-cpf"
+              />
+            </div>
+          );
+        })}
 
         <button data-test="book-seat-btn">Reservar assento(s)</button>
       </Dados>
@@ -100,6 +130,17 @@ const Dados = styled.form`
   align-items: stretch;
 
   padding: 0 24px;
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 32px;
+  }
+
+  div:first-child {
+    margin-top: 0;
+  }
 
   p {
     height: 25px;

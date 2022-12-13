@@ -26,15 +26,20 @@ export default function Success({ reservation }) {
           const [seat] = reservation.session.seats.filter(
             (s) => s.id === seatId
           );
-          console.log(seat);
           return <p key={seatId}>assento {seat.name}</p>;
         })}
       </div>
 
       <div data-test="client-info">
         <h2>Comprador</h2>
-        <p>Nome: {reservation.name}</p>
-        <p>CPF: {reservation.cpf}</p>
+        {reservation.compradores.map((buyer) => {
+          return (
+            <div key={buyer.idAssento}>
+              <p>Nome: {buyer.nome}</p>
+              <p>CPF: {buyer.cpf}</p>
+            </div>
+          );
+        })}
       </div>
 
       <button onClick={goToHome} data-test="go-home-btn">
@@ -76,6 +81,10 @@ const StyledSuccess = styled.div`
 
   div {
     margin-bottom: 40px;
+  }
+
+  div > div {
+    margin-bottom: 18px;
   }
 
   button {
