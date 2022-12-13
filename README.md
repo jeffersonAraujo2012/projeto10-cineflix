@@ -1,17 +1,17 @@
-# <p align = "center">CineFlex (React JS)</p>
+# Cineflex
 
-<p align = "center"><img style="width:500px" src="./src/assets/images/readMe.png"/></p>
+Cineflex is a mobile app created at 4th week of React of Bootcamp Driven Education. The app would be used to purchase of tickets. We used React JS, Styled Components, React Routers, Axios, etc.
 
-## ✏️ Description
-<p align="justify" >This project was built in the 4o. week of the React module in the driven education bootcamp. The app was built using ReactJS, Axios and Styled-components.</p>
 
 ## :white_circle: Technologies
 
-- [ReactJS](https://reactjs.org/)
-- [Styled-Components](https://styled-components.com/)
-- [Axios](https://axios-http.com/docs/intro)
+**Front-end:**
+- [x]  React JS
+- [x]  React Routers
+- [x]  Styled Components
+- [x]  Axios
 
-# 🏁 Let's go!
+## 🏁 Deploy
 
 This project was bootstrapped with Create React App, so you need to install Node.js and npm first, in order to test the project. First clone this github repository into your computer, then open the folder cloned:
 
@@ -33,4 +33,4 @@ npm start
 
 The website is also acessable through the vercel deploy, click the following link to see it: 
 
-- [CineFLex website](https://cineflex-react-js.vercel.app/)
+- [CineFLex](https://projeto10-cineflix-peach.vercel.ap
